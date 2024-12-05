@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+  margin: 129px 0 0;
+  padding: 0 32px;
+  font-family: Avenir;
+}
+
+.drop-down-container {
+  position: relative;
+  max-width: 1197px;
+  width: 1197px;
+}
+
+.drop-down-input-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  border: 1px solid rgba(218, 218, 218, 1);
+  background-color: rgba(243, 243, 243, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 65px 0 78px;
+  cursor: pointer;
+  transition: all .3s;
+  .drop-down-label {
+    position: absolute;
+    font-size: 42px;
+    white-space: nowrap;
+    transition: all .3s ease;
+  }
+  .drop-down-input {
+    display: none;
+    background-color: transparent;
+    padding: 14px 0;
+    font-size: 42px;
+    font-weight: 800;
+    border: none;
+    border-bottom: 1px solid rgba(132, 132, 132, 1);
+    margin-right: 72px;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+  .arrows-icon {
+    margin-left: auto;
+  }
+  .choosed-move-item {
+    display: none;
+  }
+}
+.is-open, .move-choosed {
+  .drop-down-label {
+    font-size: 32px;
+    transform: translate(-74px, -124px);
+    cursor: default;
+  }
+  .drop-down-input {
+    display: block;
+  }
+}
+
+.is-open {
+  .movies-list {
+    display: block;
+  }
+}
+
+.move-choosed {
+  .drop-down-input-container {
+    padding-left: 36px;
+  }
+  .drop-down-input {
+    display: none;
+  }
+  .choosed-move-item {
+    position: absolute;
+    display: flex;
+  }
+  .drop-down-label {
+    transform: translate(-32px, -124px);
+  }
+}
+
+.movies-list {
+  display: none;
+  position: absolute;
+  top: 233px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: rgba(243, 243, 243, 1);
+  width: 100%;
+  border: 1px solid rgba(218, 218, 218, 1);
+  max-height: 600px;
+  overflow-x: scroll;
+  
+}
+
+.movie-item, .choosed-move-item {
+  width: 100%;
+  border: none;
+  height: 206px;
+  border-bottom: 1px solid #fff;
+  padding: 29px 36px;
+  display: flex;
+  gap: 28px;
+  cursor: pointer;
+  transition: all .3s ease;
+  align-items: center;
+  &:hover, &:focus {
+    background-color: rgba(26, 170, 242, 1);
+  }
+  .movie-preview {
+    width: 100px;
+    height: 100%;
+    border: 1px solid rgba(218, 218, 218, 1);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .movie-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    .movie-title {
+      font-weight: 800;
+      font-size: 42px;
+    }
+    .movie-year {
+      font-size: 32px;
+    }
+  }
+  &:last-of-type {
+    border: none;
+  }
+}
+
+.choosed-move-item {
+  padding: 29px 0;
+  &:hover {
+    background-color: transparent;
+  }
+}

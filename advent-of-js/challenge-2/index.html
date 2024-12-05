@@ -4,8 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advent of JS | Challenge #2</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="./script.js"></script>
 </head>
 <body>
-  
+  <div class="drop-down-container">
+    <button tabindex="0" class="drop-down-input-container">
+      <div class="drop-down-label">Your Favorite Holiday Movie</div>
+      <input class="drop-down-input" type="text">
+      <div class="choosed-move-item">
+        <div class="movie-preview">
+          <img loading="lazy" src="" alt="">
+        </div>
+        <div class="movie-info">
+          <div class="movie-title"></div>
+          <div class="movie-year"></div>
+        </div>
+      </div>
+      <div class="arrows-icon">
+        <svg width="32" height="52" viewBox="0 0 32 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0.90901 34.659C1.7201 33.8479 2.99637 33.7855 3.87902 34.4718L4.09099 34.659L16 46.5662L27.909 34.659C28.7201 33.8479 29.9964 33.7855 30.879 34.4718L31.091 34.659C31.9021 35.4701 31.9645 36.7464 31.2782 37.629L31.091 37.841L17.591 51.341C16.7799 52.1521 15.5036 52.2145 14.621 51.5282L14.409 51.341L0.90901 37.841C0.0303301 36.9623 0.0303301 35.5377 0.90901 34.659Z" fill="#848484"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M31.091 17.341C30.2799 18.1521 29.0036 18.2145 28.121 17.5282L27.909 17.341L16 5.43375L4.09099 17.341C3.2799 18.1521 2.00363 18.2145 1.12098 17.5282L0.90901 17.341C0.0979215 16.5299 0.0355284 15.2536 0.721834 14.371L0.90901 14.159L14.409 0.659008C15.2201 -0.15208 16.4964 -0.214473 17.379 0.471833L17.591 0.659009L31.091 14.159C31.9697 15.0377 31.9697 16.4623 31.091 17.341Z" fill="#848484"/>
+        </svg>
+      </div>
+    </button>
+    <div class="movies-list"></div>
+  </div>
+
+  <template id="movie-item-template">
+    <button class="movie-item" tabindex="0" role="button">
+      <div class="movie-preview">
+        <img loading="lazy" src="" alt="">
+      </div>
+      <div class="movie-info">
+        <div class="movie-title"></div>
+        <div class="movie-year"></div>
+      </div>
+    </button>
+  </template>
 </body>
 </html>
