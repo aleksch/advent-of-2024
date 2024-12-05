@@ -1,0 +1,126 @@
+:root {
+  --light-color: #25C9C3;
+  --dark-color: #191349;
+  --white: #fff;
+  --container-border-radius: 8px;
+  --easing: cubic-bezier(.8, .07, .5, .92);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  margin: 0;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  padding: 0 32px;
+  background-color: var(--light-color);
+  border-radius: var(--container-border-radius);
+  align-items: center;
+  width: 600px;
+  transition: all .3s var(--easing);
+  &::after {
+    position: absolute;
+    content: '';
+    width: 96px;
+    height: 96px;
+    background-color: var(--dark-color);
+    border-radius: 50%;
+    right: 32px;
+    transition: all .3s var(--easing);
+    z-index: 1;
+  }
+}
+
+.lock-icon {
+  width: 52px;
+  height: 88px;
+  color: var(--dark-color);
+  transition: all .3s var(--easing);
+  z-index: 4;
+}
+
+.separator {
+  width: 1px;
+  height: 88px;
+  margin: 0 36px 0 28px;
+  background-color: var(--white);
+  z-index: 2;
+}
+
+.password-input {
+  padding: 0;
+  border: none;
+  height: 88px;
+  background: transparent;
+  margin: 32px 28px 32px 0;
+  flex: 1;
+  font-size: 32px;
+  min-width: 0;
+  transition: all .3s var(--easing);
+  z-index: 3;
+  &:focus {
+    outline: none;
+  }
+}
+
+.password-visible {
+  &.password-container:after {
+    width: 100%;
+    height: 100%;
+    right: 0;
+    border-radius: var(--container-border-radius);
+  }
+  .lock-icon {
+    color: var(--light-color);
+  }
+  .password-input {
+    color: #fff;
+  }
+}
+
+/* Button */
+.eye-button {
+  width: 96px;
+  height: 96px;
+  cursor: pointer;
+  transition: all .3s var(--easing);
+  z-index: 2;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  color: var(--light-color);
+  svg {
+    overflow: visible;
+    .upper-eye {
+      transition: all .3s var(--easing);
+      transform-origin: 65px 70.5px;
+    }
+    .pupil {
+      transition: transform .3s var(--easing);
+      transform-origin: 50% 70%;
+    }
+  }
+}
+
+.password-visible {
+  .eye-button {
+    color: var(--light-color);
+    .upper-eye {
+      transform: scaleY(-1);
+    }
+    .pupil {
+      transform: scaleY(0);
+    }
+  }
+} 
