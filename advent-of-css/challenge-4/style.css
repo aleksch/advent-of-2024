@@ -2,7 +2,7 @@
   --rulers-offset: 24px;
   --ruler-height: 2px;
   --ruler-color: #000;
-  /* otherwise the max цшвер is the width of the element */
+  /* otherwise the max width is the width of the element */
   --ruler-max-width: 200px;
 }
 
