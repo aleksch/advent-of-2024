@@ -1,0 +1,62 @@
+:root {
+  --cotrols-thickness: 8px;
+  --controls-color: #000;
+  --panel-color-1: rgba(202, 227, 219, 1);
+  --panel-color-2: rgba(105, 134, 98, 1);
+  --panel-color-3: rgba(83, 106, 78, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  overscroll-behavior: none;
+}
+.resizeble-layout {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.resizeble-layout > div {
+  position: relative;
+}
+.top-panel {
+  background-color: var(--panel-color-1);
+  grid-column: 1 / 3;
+}
+
+.left-panel {
+  background-color: var(--panel-color-2);
+}
+
+.right-panel {
+  background-color: var(--panel-color-3);
+}
+
+.control-horizontal, .control-vertical {
+  background-color: var(--controls-color);
+  position: absolute;
+  z-index: 1;
+}
+.control-horizontal {
+  width: 100%;
+  height: var(--cotrols-thickness);
+  bottom: calc(-1 * var(--cotrols-thickness) / 2);
+  left: 0;
+  cursor: row-resize;
+}
+.control-vertical {
+  width: var(--cotrols-thickness);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: calc(-1 * var(--cotrols-thickness) / 2);
+  cursor: col-resize;
+}
