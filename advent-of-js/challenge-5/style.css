@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  overscroll-behavior: none;
+  height: 100vh;
+  font-family: Avenir;
+}
+
+.textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  textarea {
+    padding: 4px;
+    border-radius: 4px;
+  }
+}
