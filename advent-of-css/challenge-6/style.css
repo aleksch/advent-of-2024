@@ -1,0 +1,75 @@
+:root {
+  --scrollbar-height: 8px;
+  --scrollbar-progress-color: rgb(181, 10, 121);
+  --scrollbar-bg: #ccc;
+
+
+  overscroll-behavior: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: Avenir;
+  font-size: 32px;
+  min-height: 100vh;
+  overscroll-behavior: none;
+  margin-top: var(--scrollbar-height);
+}
+
+main {
+  position: relative;
+  padding: 16px;
+}
+
+@keyframes readingProgress {
+  to { width: 100%; }
+}
+.reading-indicator-wrapper, .reading-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: var(--scrollbar-height);
+}
+
+.reading-indicator-wrapper {
+  width: 100%;
+  background-color: var(--scrollbar-bg);
+}
+
+.reading-indicator {
+  background: var(--scrollbar-progress-color);
+  animation: readingProgress linear;
+  animation-timeline: scroll(root);
+}
+
+@supports not (animation-timeline: scroll(root)) {
+  .reading-indicator-wrapper {
+    position: fixed;
+    background-color: transparent;
+  }
+  body {
+    background-color: #b48484;
+    background: linear-gradient(
+      to right top,
+      var(--scrollbar-progress-color) 50%,
+      var(--scrollbar-bg) 50%
+    );
+    background-size: 100% calc(100% - 100vh + var(--scrollbar-height) + 1px);
+    background-repeat: no-repeat;
+    &::before {
+      content: "";
+      position: fixed;
+      top: calc(var(--scrollbar-height));
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+    }
+  }
+}
