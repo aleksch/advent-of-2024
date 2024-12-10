@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  overscroll-behavior: none;
+  height: 100vh;
+  font-family: Avenir;
+  font-size: 20px;
+  padding: 0 16px
+}
